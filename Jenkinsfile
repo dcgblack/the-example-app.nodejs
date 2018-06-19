@@ -22,7 +22,7 @@ pipeline {
             steps {
                timeout(time: 60, unit: "SECONDS") {
                    script {
-                           nodeImage.withRun('-p 3000:3000') { c ->
+                           nodeImage.withRun() { c ->
                                     sh "docker exec ${c.id} npm run test:unit"
                       }
                    }
@@ -34,7 +34,7 @@ pipeline {
             steps {
                timeout(time: 120, unit: "SECONDS") {
                    script {
-                           nodeImage.withRun('-p 3000:3000') { c ->
+                           nodeImage.withRun() { c ->
                                 sh "docker exec ${c.id} npm run test:integration"
 
                       }
