@@ -45,7 +45,7 @@ pipeline {
 
         stage('Staging') {
             steps {
-               timeout(time: 120, unit: "SECONDS") {
+               timeout(time: 300, unit: "SECONDS") {
                    script {
                             docker.withRegistry("${env.REGISTRY}") {
                                 nodeImage.push("${env.BUILD_ID}")
