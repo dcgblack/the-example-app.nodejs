@@ -3,12 +3,14 @@ pipeline {
 
     environment {
         REGISTRY = "http://localhost:5000"
-        IMAGE = "node-app-image:${env.BUILD_ID}"
     }
 
     stages {
 
         stage('Build') {
+ 	    environment {
+               IMAGE = "node-app-image:${env.BUILD_ID}"
+            } 
             steps {
                timeout(time: 60, unit: "SECONDS") {
                    script {
